@@ -1,0 +1,82 @@
+<%- include('partial/head') %>
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('partial/slider') %>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('partial/navbar') %>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard | About | Add-About</h1>
+                        
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+<form action="/admin/addpost" method="post" enctype="multipart/form-data" >
+	<div class="form-group">
+	<label for="email">About Title:</label>
+	<input type="text" name="aboutitle" class="form-control" id="email">
+	</div>
+	<div class="form-group">
+    <label for="exampleInputPassword1">Enter Post</label><br>
+    <textarea name="editor1"></textarea>
+    </div> 
+    <div class="form-group">
+	<label for="email">image:</label>
+	<input type="file" name="image" class="form-control" id="emaill">
+	</div>
+	
+	<button type="submit" class="btn btn-success">Add-About</button>
+    </form>
+    </div>
+
+                    <!-- Content Row -->
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <%- include('partial/footer') %>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <%- include('partial/lmodel') %>
+
+    <!-- Bootstrap core JavaScript-->
+    <%- include('partial/script') %>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+</script>
+</body>
+</html>

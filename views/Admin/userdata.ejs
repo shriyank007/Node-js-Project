@@ -1,0 +1,92 @@
+<%- include('partial/head') %>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('partial/slider') %>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('partial/navbar') %>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">User Details</h1>
+                        
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <table class="table" >
+                            <thead>
+                              <tr class="table-light">
+                                <th scope="col">Id</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone Number</th>
+                            </tr>
+                            </thead>
+                            <% let count=0 %>
+                            <% if( userDetails.length > 0 ) { %>
+                            <tbody>
+                            <% for(let data of userDetails) { %>
+                              <tr>
+                               <td><%= ++count %></td>
+                               <td><%= data.username %></td>
+                                <td><%= data.email %></td>
+                                <td><%= data.phone%></td>
+                              </tr>
+                            </tbody>
+                            <% }} else { %>
+                            <h3>No Data</h3>
+                            <% } %>
+                          </table>
+                        
+                        
+                    </div>
+
+                    <!-- Content Row -->
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <%- include('partial/footer') %>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <%- include('partial/lmodel') %>
+
+    <!-- Bootstrap core JavaScript-->
+    <%- include('partial/script') %>
+</body>
+
+</html>

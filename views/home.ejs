@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('./partial/head.ejs')%>
+    <body>
+       <%- include('./partial/usernavbar.ejs')%>
+    <!-- Page Header-->
+        <header class="masthead" style="background-image: url('web/assets/img/d.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Share The Stories</h1>
+                            <span class="subheading"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <% if(displayData.docs && displayData.docs.length>0) { %>
+                    <% for(let data1 of displayData.docs) { if(data1.status!=0) { %>
+                    <div class="card mb-3">
+                   
+                        <img src="<%= data1.image%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title"><%= data1.title %></h3>
+                          <h5> <p class="card-text"><%- data1.subtitle %></p> </h5>
+                          <hr>
+                          <p class="card-text"><%- data1.post.slice(0,150)%>...<a href="/readpost/<%= data1.slug%>">read more</a></p>
+                        </div>
+                    
+                    </div>
+                     <% }}} else { %>
+                        <h2>Not Post</h2>
+                     <% } %>
+                    
+                </div>
+                <div class="d-flex justify-content-end mb-4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link <%= !displayData.hasPrevPage ? 'disabled' : '' %>" href="<%= displayData.prevPage ? `?page=${displayData.prevPage}` : '' %>">Previous</a></li>
+                          <% if(displayData.totalPages){ for(i=1; i<=displayData.totalPages; i++){ %>
+                          <li class="page-item <%= (pager == i) ? 'active' : '' %>"><a class="page-link" href="?page=<%= i %>"><%= i %></a></li>
+                          <% }} %>
+                         
+                          <li class="page-item"><a class="page-link <%= !displayData.hasNextPage ? 'disabled' : '' %>" href="<%= displayData.nextPage ? `?page=${displayData.nextPage}` : '' %>">Next</a></li>
+                        </ul>
+                      </nav>
+                </div>
+               
+                </div>
+            </div>
+            
+        <!-- Footer-->
+        <%- include('./partial/footer.ejs')%>
+    </body>
+    
+</html>

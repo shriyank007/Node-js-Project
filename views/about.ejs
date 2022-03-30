@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('./partial/head.ejs')%>
+    <body>
+        <%- include('./partial/usernavbar.ejs')%>
+         <!-- Page Header-->
+         <header class="masthead" style="background-image: url('web/assets/img/about-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>About Us</h1>
+                            <span class="subheading"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <% if(displayData.length>0) { %>
+                    <div class="card mb-3">
+                    <% for(let data of displayData) { %>
+                        <img src="<%= data.image%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h2 class="card-title"><%= data.aboutitle %></h2>
+                          
+                          <hr>
+                          <p class="card-text"><%- data.aboutbody %></p>
+                          
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                     <% }} else { %>
+                    <h2>Not Post</h2>
+                     <% } %>
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <%- include('./partial/footer.ejs')%>
+    </body>
+</html>

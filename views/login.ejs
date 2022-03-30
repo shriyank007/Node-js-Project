@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('./partial/head.ejs')%>
+    <body>
+      
+      <!-- Main Content-->
+      <header class="musthead">
+        <div class="container px-4 px-lg-5 h-100">
+          <div
+            class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+              <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+              <a class="btn btn-primary btn-xl" href="/">Home</a>
+              <br><br>
+              <strong><%= message %></strong>
+              <!-- <p>Already have an account?</p> -->
+              <!-- <h3 id="heading">Login Here &#9786;</h3> -->
+            </div>
+          </div>
+        </div>
+      </header>
+      <form action="/login_data" method="post" class="formm">
+      <h3 id="heading">Login Here &#9786;</h3>
+      <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" value="<%=data.email%>" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" value="<%=data.password%>" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" name="rememberme" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p class="text-center">
+         <b>  Not a member ? </b> <a data-toggle="tab" href="/register">Sign Up</a>
+        </p>
+      </form>
+        <!-- Footer-->
+        <%- include('./partial/footer.ejs')%>
+    </body>
+</html>
